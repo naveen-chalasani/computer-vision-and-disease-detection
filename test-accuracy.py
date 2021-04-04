@@ -9,7 +9,7 @@ from keras.preprocessing.image import load_img, img_to_array
 
 image_arrays = list()
 labels = list()
-train_dir = os.path.join('./', 'demo_data')
+train_dir = os.path.join('./', 'validation')
 class_list = os.listdir(train_dir)
 
 for each_class in class_list:
@@ -33,7 +33,7 @@ image_labels = label_binarizer.fit_transform(labels)
 
 x_train, x_test, y_train, y_test = train_test_split(scaled_image_arrays, image_labels, test_size = 0.3, random_state = 1)
 
-model_new = load_model("grape-vision-model-prototype.h5")
+model_new = load_model("model-prototype.h5")
 
 scores = model_new.evaluate(x_test, y_test)
 print("\n\n\n")
